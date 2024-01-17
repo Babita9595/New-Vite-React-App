@@ -1,0 +1,266 @@
+documentation for Project-2 'bharat-clock'
+
+step-1
+-------
+
+-->install react in a new folder
+ex- npm  create vite@latest  /enter
+projectname- 2-bharat-clock-version-one  /enter
+
+select- react  //enter
+select- javascript  //enter
+
+--->project will created
+
+step-2
+------
+
+--> goto folder in cmd = cd 2-bharat-clock-version-one //enter
+
+then type - npm i   //enter
+
+then - npm i bootstrap@5.3.2
+
+then - in main.jsx file import the bootstrap = import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+step-3
+------
+
+use this command to run the project 'npm run dev'
+it will run on 5173 port 
+
+
+1,React.Fragement => wrap the content into a empty div means alg se div me wrap nahi krta hai 
+                   only inside element wrap hai jis v element me use hi leta hai
+		  (allow grouping of multiple elements without extra DOM nodes.)
+			<></>, <React.fragment></React.fragment>
+
+2,key=> if we give perform will be fast and it will define evry child as unique (it is vertual dom concept)
+	it helps to re-render the update element only not all page
+
+
+conditional Rendering=>Displaying content based on certain condotions.
+			allows for dynamic user interfaces
+method-
+if else = choose between 2 blocks
+ternary = quick way too choose
+logical operator = useful for rendering content when condition is true
+
+{condition && <div></div>}
+{!condition ? <div></div> : <h1></h1>}
+
+
+3,Passing Data via props=>
+->mechanism for passing data from parent to child
+->props are immutable (we cant edit)
+
+
+
+
+
+arr = [1,3,4,5,6,7,8]
+
+
+<componet1 item={arr} />
+<component2 item={arr} />
+
+const component1 = ({item})=>{  //array destructuring
+return item.map(i)=><li>{i}</li>
+}
+
+const component2 = (props)=>{
+return props.item.map(i)=><li>{i}</li>
+
+}
+
+
+4,CSS Modules
+->localized class names to avoid global conflits,
+->styles are scope to individual components
+-> 
+
+5,Paasing childerns
+
+-->in a container we can pass javascript or jsx or component 
+ex <Contaoner>
+	<h1>hello</h1>
+	<h2>bye</h2>
+   </Container>
+
+
+const Container = (props)=>{
+	<div>{props.childern}</div>
+}
+
+export default Container;
+
+o/p => hello
+        bye
+
+
+6,Passing Function via Props
+-->enables upwords communication from child to parent
+--> commenly used e for vent handling
+--> child emit-events to parent component
+
+-->we can pass  function also
+
+7,React icon Library
+
+--> npm install react-icon --save
+
+import {ioAddIcon} from "react-icons/fc"
+<ioAddIcon/>
+
+
+8,use React Developer Tool extension to find out the bugs (for debugging)
+
+9,one main component present in react
+
+10,in empty div all component have render
+
+11, index.html starting point of our application
+
+12,Form
+
+  event.preventDefault() => stop the default behaviour of form the default behaviour is to submit automatic into server and refresh the page
+
+
+13,useRef =>
+-->useRef allows access to DOM element and retains mutable values without re-render
+-->if we want to update the state without re-render the page or component then we can     go for useRef
+
+-->if we want to use jsx element then we can use useRef
+
+--> useed with ref attribute for direct DOM interactions
+--> can holds previous state and props value 
+--> refs can be passed as props also
+--> not limited to DOM references , can hold any values
+
+14, updating state with previous state
+--> by using spread operator
+--> spread operator , spread the current array 
+
+another approach (updates)
+-----------------------------
+if we want to set current value based on previous value so in that situation we can pass the method in the state
+
+const [state, setState] = useState([{},{},{}])
+
+setState((currentvalue)=>[
+
+	...currentvalue,
+	{}
+])
+
+
+15, Contex Api (common shared storage amung all the component)
+--------------->(means in more component we want to  use same state)
+1,props Drilling-> contex Api addressing props drilling; component composition is an alternative
+
+2,Folder Setup: use a store folder form contex files
+
+3,Initialization:Use React.createContext with initial state and export it
+9:43
+
+4,Provider: Implement with contextName.Provider in components
+
+5,Access Vlaue: use the useContext hook
+
+6,Dynamic Data: combine context value with state 
+
+
+7,Export Functions: Context can also export functions for actions
+
+
+8,Logic Separation: This helps the UI and business logic seperation from each other
+
+
+disadvantage=> when contex is changed then whole component is re-render or repaint those are using context so mostly will used for common places or component for same data
+
+16.USE Reducer => this is react hook  used mainly to update the state and manage the state for complex logic(mainly to update the state logic becoming complex,lenthy and dificult)
+
+-->main component=>  1 reducer, 2 action
+
+component ----------------dispatch/action obj------------>|
+
+|
+|
+
+component re-render
+                                                           |
+ |                                                       Reducer
+ State                     state update                 (takeaction,payload)         final     
+
+Reducer=> reducer is a pure function means it need to take care of its arguments and what data need to return. no need to interefare in other work and create no side effect to other functions
+
+useReducer hook => mainly contain two parameters
+1) Reducer function  =>it take action object and return state and it should be pure component
+2) intial state =>
+  
+
+
+17,   9-Social Media App
+----------------------------->
+npm i bootstrap@5.3.2
+
+npm i react-icons --save
+
+18,Handling Loading State by "spinner" / skelton / fallback component
+
+19, The useEffect Hook Cleaner
+-------------------------------->returning function from useEffect allows for cleanUp , ideal for removing event listener 
+
+if component is not in memory then we can stop the updating component
+we have to give in useEffect inside that return = method  that time this return will call
+
+
+20, advanced useEffect
+------------------------>
+AbortController()  we can abort() api call
+
+
+21, useCallback
+---------------->
+prevents function across render to prevent unnecessary re-render
+
+->enhance performance
+
+->used to keep consistences function reference for child component
+
+->prevent infinte loop (basically used to save method)
+
+
+22, useMemo
+------------>used to save calculation , data only repaint when data change or re-calculation happen
+
+useMemo((fnction)=>{},[dependency])
+
+used for intensive computations or operation that shouldn't run on evry render
+
+
+
+REDUX---->
+------------>
+--------------->
+state management for cross-component or app-wide state
+
+redux is predictable state management library for js app
+
+local state vs cross-component state(it means state are used more than one component) vs app-wide state
+
+useState-->useReducer-->useState with props drilling --> useContext --> Redux
+
+npm init -y
+
+npm install redux
+
+create node file .js
+
+
+
+react-redux-toolkit
+--------------------->
+
+npm install @reduxjs/toolkit

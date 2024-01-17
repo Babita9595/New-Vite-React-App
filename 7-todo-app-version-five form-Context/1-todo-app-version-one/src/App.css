@@ -1,0 +1,14 @@
+
+
+input {
+    width :100%;
+    margin-top: 10px;
+}
+
+.kg-row{
+    margin-top:15px !important;
+}
+
+.kg-button{
+    min-width: 50px !important;
+}

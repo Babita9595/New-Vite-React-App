@@ -1,0 +1,26 @@
+
+
+input {
+    width :100%;
+    margin-top: 10px;
+}
+
+.kg-row{
+    margin-top:15px !important;
+}
+
+.kg-button{
+    min-width: 200px !important;
+}
+
+.todo-item {
+    /* Your existing styles for the item go here */
+    cursor: pointer; /* Add this to indicate that the element is clickable */
+    transition: color 0.3s; /* Add this to smoothly transition the color change */
+  
+    /* Add your other styles as needed */
+  }
+  
+  .todo-item:hover {
+    font-size: 20px; /* Change this to the color you want on hover */
+  }
